@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { Builder, By, until } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
-require("chromedriver");
 const cheerio = require("cheerio");
 
 const app = express();
