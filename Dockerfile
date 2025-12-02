@@ -3,6 +3,7 @@ FROM node:22.14.0-slim
 # Evita descargar Chromium de Puppeteer (no se usa) y optimiza entorno
 ENV NODE_ENV=production
 ENV PUPPETEER_SKIP_DOWNLOAD=1
+ENV PORT=8080
 
 # Dependencias necesarias para ejecutar Chrome/Chromium en modo headless
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -37,7 +38,7 @@ RUN npm ci --omit=dev
 COPY index.js ./
 
 # Expone el puerto en el que corre la aplicación (3000 en este caso)
-EXPOSE 3000
+EXPOSE 8080
 
 # Comando para iniciar la aplicación
 CMD ["node", "index.js"]
